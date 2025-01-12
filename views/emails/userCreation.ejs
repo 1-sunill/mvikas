@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to M-Vikas</title>
+
+    <!-- Style -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        font-size: 15px;
+        color: #000;
+      }
+
+      table {
+        border-spacing: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+      }
+
+      .email-container {
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        border-collapse: collapse;
+      }
+
+      .header img {
+        max-width: 180px;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px 0;
+        background-color: #f1f1f16e;
+      "
+    >
+      <tr>
+        <td>
+          <table
+            class="email-container"
+            role="presentation"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+          >
+            <tr>
+              <td
+                style="
+                  padding: 5px 5px;
+                  width: 100%;
+                  height: 150px;
+                  background-color: #fff;
+                "
+              >
+                <img
+                  style="width: 100%; height: 100%"
+                  src="https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg?cs=srgb&dl=pexels-fotios-photos-1107717.jpg&fm=jpg"
+                  alt=""
+                />
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="header"
+                style="
+                  text-align: center;
+                  padding: 10px 10px;
+                  background-color: #fff;
+                "
+              >
+                <img
+                  src="data:image/png;base64,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"
+                  alt="Century Fence"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="content"
+                style="padding: 20px 20px 0 20px; background-color: #fff"
+              >
+                <p>Hi,<b> <%= customer_name%></b></p>
+                <p>
+                  Welcome to the <b><%= workspaceName%></b> team! We're excited
+                  to have you join us.
+                </p>
+                <p>Your login credentials are:</p>
+                <ul type="dots">
+                  <li>
+                    <p>User Email: <b><%=email %></b></p>
+                  </li>
+                  <li>
+                    <p>Password: <b><%= password%></b></p>
+                  </li>
+                </ul>
+                <p>Click the link below to access your account:</p>
+                <p>
+                  <a href="http://13.235.137.221/mvikash_crm_build_dev/#/"
+                    >M-vikas</a
+                  >
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="content"
+                style="padding: 20px 20px; background-color: #fff"
+              >
+                <b> Need Help?</b>
+                <p>
+                  We hope you find our platform helpful and informative. If you
+                  have any questions, please don't hesitate to reach out to our
+                  support team.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="content"
+                style="padding: 0px 20px 0px 20px; background-color: #fff"
+              >
+                <p style="margin-top: 0">Best regards,</p>
+
+                <b>
+                  <p><%= workspaceName%></p>
+                </b>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="content"
+                style="
+                  padding: 20px 20px 20px 20px;
+                  text-align: center;
+                  background-color: #f1f1f16e;
+                "
+              >
+                <p style="margin: 5px; font-size: 13px; color: #8d8a8a">
+                  MVIKAS TECHNOLOGIES PRIVATE LIMITED
+                </p>
+                <p style="margin: 5px; font-size: 13px; color: #8d8a8a">
+                  BIG JOS TOWER UNIT NO. 11G PLOT NO. A-08 WAZIR PUR DIST.
+                  CENTER NSP.
+                </p>
+                <P style="margin: 5px; font-size: 13px; color: #8d8a8a"
+                  >PITAM PURA, North West Delhi, Delhi,110034
+                </P>
+
+                <p
+                  style="
+                    margin: 20px 5px 5px 5px;
+                    font-size: 13px;
+                    color: #8d8a8a;
+                  "
+                >
+                  For Any Futher queries/assistance,
+                  <a style="color: #8d8a8a" href="">9870300937</a> /
+                  <a style="color: #8d8a8a" mailto:href="">sales@mvikas.in</a>
+                </p>
+                <p style="margin: 5px; font-size: 13px; color: #8d8a8a">
+                  Powered By: MVIKAS TECHNOLOGIES PRIVATE LIMITED
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 20px;
+                  "
+                >
+                  <a
+                    style="font-size: 24px; margin-right: 10px; color: #316ff6"
+                    href=""
+                  >
+                    <i class="fa-brands fa-facebook"></i>
+                  </a>
+                  <a
+                    style="font-size: 24px; margin-right: 10px; color: #14171a"
+                    href=""
+                  >
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a
+                    style="
+                      font-size: 24px;
+                      margin-right: 10px;
+                      background: -webkit-linear-gradient(
+                        #f58529,
+                        #feda77,
+                        #dd2a7b,
+                        #8134af,
+                        #515bd4
+                      );
+                      -webkit-background-clip: text;
+                      -webkit-text-fill-color: transparent;
+                    "
+                    href=""
+                  >
+                    <i class="fa-brands fa-square-instagram"></i>
+                    <!-- <i class="fa-brands fa-instagram"></i> -->
+                  </a>
+                  <a
+                    style="font-size: 24px; margin-right: 10px; color: #ff0000"
+                    href=""
+                  >
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                  <a style="font-size: 24px; color: #0077b5" href="">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
