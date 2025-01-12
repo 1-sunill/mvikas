@@ -1,0 +1,35 @@
+{
+  
+  "development": {
+    "username": "SuserMvikas",
+    "password": "SMVika!($!!es",
+    "database": "mvikash_staging_db",
+    "host": "13.235.137.221",
+    "dialect": "mysql",
+    "logging": false
+
+  },
+  "development5": {
+    "username": "mvikasUser",
+    "password": "MvKs9!Q!(117",
+    "database": "mvikas_db",
+    "host": "43.205.100.246",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "test": {
+    "username": "mvikasuser",
+    "password": "MVks9!3y",
+    "database": "mvikas_db",
+    "host": "13.235.137.221",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "mvikasuser",
+    "password": "MVks9!3y",
+    "database": "mvikas_db",
+    "host": "13.235.137.221",
+    "dialect": "mysql"
+  }
+}
+
