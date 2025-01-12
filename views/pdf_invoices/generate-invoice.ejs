@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Generate Po</title>
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      p {
+        margin: 5px 0px;
+      }
+
+      .page {
+        width: 21cm;
+        background: white;
+        margin: 1cm auto;
+        padding: 20px 15px;
+      }
+
+      .page_content {
+        border: 1px solid #000;
+      }
+
+      .page_content .invoice_title {
+        padding: 5px 5px;
+      }
+
+      .page_content .invoice_title h3 {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .page_content .invoice_title h2 {
+        width: 100%;
+        font-size: 18px;
+        color: #0033ed;
+      }
+
+      .page_content b {
+        display: inline-block;
+      }
+
+      .table_wrap {
+        padding: 0;
+      }
+
+      .table_wrap table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .table_wrap table td p,
+      .table_wrap table tr p {
+        margin: 5px 0px;
+      }
+
+      .table_wrap table th,
+      .table_wrap table td {
+        padding: 5px;
+        border: 1px solid #000;
+      }
+
+      .table_wrap table.table_data_set th,
+      .table_wrap table.table_data_set td {
+        text-align: center;
+      }
+
+      .table_wrap table th:first-child,
+      .table_wrap table td:first-child {
+        border-left: 0;
+      }
+
+      .table_wrap table th:last-child,
+      .table_wrap table td:last-child {
+        border-right: 0;
+      }
+
+      .wrapper_right ul {
+        margin-bottom: 0;
+      }
+
+      .wrapper_right ul li {
+        border-bottom: 1px solid #000;
+        padding-left: 10px;
+      }
+
+      .wrapper_right ul li:last-child {
+        border-bottom: unset;
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page" size="A4">
+      <div style="display: flex; justify-content: center; padding-bottom: 20px">
+        <img src="<%= companyLogo %>" alt="logo" height="auto" width="120px"/>
+      </div>
+      <div class="page_content">
+        <div class="titleInvoice_content" style="display: flex">
+          <div
+            class="wrapper_left"
+            style="width: 50%; border-right: 1px solid #000"
+          >
+            <div
+              class="invoice_title"
+              style="border-bottom: 0; padding-top: 30px"
+            >
+              <h2 style="margin: 0; padding: 6px 0px"><%= workspaceName %></h2>
+            </div>
+            <ul
+              type="none"
+              style="
+                padding-left: 0px;
+                padding-bottom: 20px;
+                width: 100%;
+                margin-top: 0;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <li style="margin-bottom: 5px; padding-left: 10px">
+                <p><%= address %></p>
+                <p>GSTIN: <%= workspaceGst %></p>
+                <p>PAN: AANCM1591L</p>
+                <p>CIN: <%= workspaceCin %></p>
+                <p>Email: <%= workspaceEmail %></p>
+              </li>
+            </ul>
+            <ul
+              type="none"
+              style="
+                padding: 20px 0px;
+                width: 100%;
+                border-bottom: 1px solid #000;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <li style="margin-bottom: 5px; padding-left: 10px">
+                <b>Doris Fischer (Bill to)</b>
+                <p><%= billTo %></p>
+                <p>State Code: 12</p>
+              </li>
+            </ul>
+            <ul
+              type="none"
+              style="
+                padding-left: 0px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <li style="margin-bottom: 5px; padding-left: 10px">
+                <b>Doris Fischer (ship to)</b>
+                <p><%= shipping_address %></p>
+                <p>State Code: 12</p>
+              </li>
+            </ul>
+          </div>
+          <div class="wrapper_right" style="width: 50%">
+            <ul type="none" style="padding-left: 0px">
+              <li style="margin-bottom: 5px">
+                <p>
+                  Invoice No.:
+                  <b><%= invoiceNo %></b>
+                </p>
+              </li>
+              <li style="margin-bottom: 5px; border-bottom: 1px solid #000">
+                <p>
+                  e-Way Bill No.
+                  <b><%= customerName %> - EWAY BILL NO.</b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  PO Dated:
+                  <b><%= po_date %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Mode/Terms of Payment:
+                  <b> Through 
+                    
+                    <% if (modeOfPayment == 1) { %>
+                        <b>yes</b>
+                      <% } else { %>
+                        <b>no</b>
+                      <% } %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Delivery Note date:
+                  <b>-</b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Buyer's Order NO.:
+                  <b><%= customerOrderNo %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Delivery Note:
+                  <b><%= deliveryNote %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Destination:
+                  <b><%= destination %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Motor Vehicle No.:
+                  <b><%= vehicleNumber %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Dispatch Doc No.:
+                  <b><%= dispatchDocNo %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Dispatched through:
+                  <b><%= dispatchThrough %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bill of /LR-RP No.:
+                  <b><%= builty_no_lr_no %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Terms of Delivery:
+                  <b> <%= terms_of_delivery %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Insurance Number:
+                  <b> 2412205707224100000</b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  MVIKAS Order No.:
+                  <b> <%= mvikasOrderNo %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Sales Representative name:
+                  <b><%= sales_rep_name %></b>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Test Certificate No.:
+                  <b> 129000912</b>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="table_wrap">
+            <table class="table table_cstm table_data_set">
+              <thead>
+                <tr>
+                  <th>Sl No.</th>
+                  <th>Description of Goods</th>
+                  <th>HSN/SAC</th>
+                  <th>Quantity</th>
+                  <th>Rate</th>
+                  <th>Per</th>
+                  <th>Amount ₹</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% 
+                let subtotal = 0; 
+                let gstAmount = 0; 
+                orderItems.forEach((orderItem, index) => { 
+                  const taxableAmount = orderItem.price * orderItem.quantity; 
+                  subtotal += taxableAmount; 
+                  gstAmount += (taxableAmount * orderItem.gst_rate) / 100; 
+                %>
+                  <tr>
+                    <td style="font-size: 12px"><%= index + 1 %></td>
+                    <td style="font-size: 12px"><%= orderItem.name %></td>
+                    <td style="font-size: 12px"><%= orderItem.hsn %></td>
+                    <td style="font-size: 12px"><%= orderItem.quantity %></td>
+                    <td style="font-size: 12px"><%= orderItem.gst_rate %></td>
+                    <td style="font-size: 12px"><%= taxableAmount.toFixed(2) %></td>
+                    <td style="font-size: 12px"> <%= (taxableAmount * (orderItem.gst_rate / 100)) + taxableAmount %></td>
+                  </tr>
+                <% }); %>
+                <tr>
+                  <td><b>Total</b></td>
+                  <td colspan="5"></td>
+                  <td><b><%= (subtotal + gstAmount).toFixed(2) %></b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="table_wrap">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="12" style="width: 100%">
+                    <p>Amount chargeable (in words):</p>
+                    <p><b><%= amountInWord %></b></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- <div class="table_wrap">
+            <table class="table table_cstm table_data_set">
+              <thead>
+                <tr>
+                  <th rowspan="2">HSN/SAC</th>
+                  <th rowspan="2">Taxable Amount</th>
+                  <th colspan="2">SGST</th>
+                  <th colspan="2">CGST</th>
+                  <th colspan="2">IGST</th>
+                  <th rowspan="2">Total Tax Amount ₹</th>
+                </tr>
+                <tr>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                  <th>Rate</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% orderItems.forEach((orderItem) => { 
+                  const taxableAmount = orderItem.price * orderItem.quantity; 
+                  const igst = (taxableAmount * orderItem.gst_rate) / 100; 
+                %>
+                  <tr>
+                    <td style="font-size: 12px"><%= orderItem.hsn %></td>
+                    <td style="font-size: 12px"><%= taxableAmount.toFixed(2) %></td>
+                    <td style="font-size: 12px">0</td>
+                    <td style="font-size: 12px">0</td>
+                    <td style="font-size: 12px">0</td>
+                    <td style="font-size: 12px">0</td>
+                    <td style="font-size: 12px"><%= orderItem.gst_rate %></td>
+                    <td style="font-size: 12px"><%= igst.toFixed(2) %></td>
+                    <td style="font-size: 12px"><%= igst.toFixed(2) %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div> -->
+          
+          <div class="table_wrap">
+            <table class="table">
+              <tbody>
+                <!-- <tr>
+                  <td colspan="12" style="width: 100%">
+                    <p>Tax Amount (in words):</p>
+                    <p><b>dfs</b></p>
+                  </td>
+                </tr> -->
+                <tr>
+                  <td colspan="12" style="border: 0">
+                    <p>1. Terms and conditions as per agreement.</p>
+                    <p>2. TDS @ 2% under Section 194C.</p>
+                    <p>3. Valid subject to realization of payments.</p>
+                    <p>4. Digitally signed, no signature required.</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="12" style="text-align: right;">
+                    <h3><b><%= workspaceName %></b></h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 50%; border: 0">
+                    <p><b>Company's Bank Details</b></p>
+                    <ul>
+                      <li>A/c Holder: <b><%= workspaceName %></b></li>
+                      <li>Bank Name: <b><%= bankName %></b></li>
+                      <li>A/c No.: <b><%= bankAccountNo %></b></li>
+                      <li>Branch & IFSC: <b><%= bankIfsc %></b></li>
+                      <li>Swift Code: <b>2345678</b></li>
+                    </ul>
+                  </td>
+                  <td style="width: 50%; border: 0; text-align: right;">
+                    <p><b>Authorised Signature</b></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table">
+              <tbody>
+                <tr
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: #11234f;
+                  "
+                >
+                  <td style="padding: 10px 5px; border: 0; color: #fff;">
+                    <span style="font-size: 14px"><%= company_name %> </span>
+                  </td>
+                  <td style="padding: 10px 5px; border: 0; color: #fff">
+                    <span style="font-size: 14px"><%= company_email%></span>
+                  </td>
+                  <td style="padding: 10px 5px; border: 0; color: #fff">
+                    <span style="font-size: 14px">+91 <%= company_phone%></span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+      </div>
+
+      <div style="margin-top: 20px; text-align: center">
+        <p><b>This is a system generated document</b></p>
+      </div>
+    </div>
+  </body>
+</html>

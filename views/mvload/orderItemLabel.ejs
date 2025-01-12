@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        p {
+            margin: 5px 0px;
+        }
+
+        .page {
+            width: 21cm;
+            background: white;
+            margin: 1cm auto;
+            padding: 20px 15px;
+        }
+
+        .page_content {
+            border: 1px solid #000;
+        }
+
+        .page_content .invoice_title {
+            padding: 5px 5px;
+        }
+
+        .page_content .invoice_title h3 {
+            width: 100%;
+            font-size: 18px;
+
+        }
+
+        .page_content .invoice_title h2 {
+            width: 100%;
+            font-size: 18px;
+            color: #0033ed;
+
+        }
+
+        .page_content b {
+            display: inline-block;
+        }
+
+        .table_wrap {
+            padding: 0;
+        }
+
+        .table_wrap table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table_wrap table td p,
+        .table_wrap table tr p {
+            margin: 5px 0px;
+
+        }
+
+        .table_wrap table th,
+        .table_wrap table td {
+            padding: 5px;
+            text-align: left;
+            border: 1px solid #000;
+        }
+
+        .table_wrap table th:first-child,
+        .table_wrap table td:first-child {
+            border-left: 0;
+        }
+
+        .table_wrap table.table_cstm tr th {
+            border-left: 0;
+            border-right: 0;
+            background-color: #fff;
+        }
+
+        .table_wrap table th:last-child,
+        .table_wrap table td:last-child {
+            border-right: 0;
+        }
+        .cstm_table table tr th,
+        .cstm_table table tr td{
+            text-align: center;
+
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="page" size="A4">
+        <div class="page_content">
+            <div class="invoice_title" style=" border-bottom: 1px solid #000; text-align: center; padding: 10px 10px;">
+                <img style="width: 55px;"
+                    src="data:image/png;base64,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"
+                    alt="logo">
+                <div style="padding-left: 20px;">
+                    <p style="margin: 0; font-size: 16px;">
+                        <b>Order Id:</b> <%=OrderId%>
+                    </p>
+                </div>
+            </div>
+            <div class="titleInvoice_content">
+                <div class="wrapper_left"
+                    style="border-bottom: 1px solid #000; padding: 0px 15px; text-align: center; ">
+                    <p style="font-size: 16px; font-weight: 500;">Master:<span
+                            style="font-size: 18px; font-weight: 700;"> <%=OrderId%></span>
+                    </p>
+                    <p style="font-size: 16px; font-weight: 500;">Docket Number:<span
+                            style="font-size: 18px; font-weight: 700;"> <%=docketNumber%></span>
+                    </p>
+                </div>
+            </div>
+            <div class="titleInvoice_content" style="display: flex;">
+                <div class="wrapper_right"
+                    style="width: 100%; padding: 0px 15px; display: flex; align-items: center; justify-content: center;">
+                    <figure style="width: 130px; height: 130px;">
+                        <img src="<%= qr%>" alt=""
+                            style="width: 100%; height: 100%; object-fit: fill;">
+                    </figure>
+                </div>
+            </div>
+            <div class="table_wrap cstm_table">
+                <table>
+                    <tr>
+                        <th>Box</th>
+                        <th>Child-Number</th>
+                        <th>Length</th>
+                        <th>Breadth</th>
+                        <th>Height</th>
+                    </tr>
+                    <tr>
+                        <td><%= itemNumber%>/<%= totalItem%></td>
+                        <td><%= itemId%></td>
+                        <td><%=itemL%></td>
+                        <td><%=itemB%></td>
+                        <td><%=itemH%></td>
+
+                    </tr>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Item Type</th>
+                        <th>Item Category</th>
+                        <th>Item Subcategory</th>
+                        <th>Packaging Type</th>
+                    </tr>
+                    <tr>                        
+                        <td><%=itemName%></td>
+                        <td><%=itemType%></td>
+                        <td><%=itemCategory%></td>
+                        <td>Others</td>
+                        <td>Others</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="titleInvoice_content">
+                <div class="wrapper_left"
+                    style="border-bottom: 1px solid #000; padding: 15px 15px; text-align: center; ">
+                    <p style="font-size: 14px; font-weight: 700;">Pickup Address:</p>
+                    <p style="font-size: 14px; font-weight: 400;"><%= consignorAddress%></p>
+                </div>
+                <div class="wrapper_left"
+                    style="border-bottom: 1px solid #000; padding: 15px 15px; text-align: center; ">
+                    <p style="font-size: 14px; font-weight: 700;">Delivery Address:</p>
+                    <p style="font-size: 14px; font-weight: 400;">
+                        <%= consigneeAddress%>
+                    </p>
+                </div>
+                <div class="wrapper_left" style="padding: 15px 15px; text-align: center; ">
+                    <p style="font-size: 14px; font-weight: 700;">Return Address:</p>
+                    <p style="font-size: 14px; font-weight: 400;">
+                        <%= returnAddress%>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+        <div style="margin-top: 20px; text-align: center;">
+            <p> <b>This is a system generated document</b> </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

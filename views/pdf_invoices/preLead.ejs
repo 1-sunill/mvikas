@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <title>pre-lead</title>
+
+  <style>
+    body {
+      font-family: "Inter", serif;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .page {
+      width: 21cm;
+      background: white;
+      margin: 1cm auto;
+      padding: 20px 15px;
+    }
+
+    .page_content {
+      border: 1px solid #000;
+    }
+
+    .page_content .invoice_title {
+      justify-content: space-between;
+      border-bottom: 1px solid;
+      padding: 5px 5px;
+      background-color: rgba(211, 211, 211, 0.486);
+    }
+
+    .page_content .invoice_title h2 {
+      margin: 10px 0;
+      width: 100%;
+      /* max-width: 50%; */
+      font-size: 18px;
+    }
+
+    .page_content b {
+      display: inline-block;
+    }
+
+    .table_wrap {
+      padding: 0;
+    }
+
+    .table_wrap table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table_wrap table td p,
+    .table_wrap table tr p {
+      margin: 5px 0px;
+    }
+
+    .table_wrap table th,
+    .table_wrap table td {
+      padding: 5px;
+      text-align: left;
+      border: 1px solid #000;
+    }
+
+    .table_wrap table th:first-child,
+    .table_wrap table td:first-child {
+      border-left: 0;
+    }
+
+    .table_wrap table.table_cstm tr th {
+      border-left: 0;
+      border-right: 0;
+      background-color: #fff;
+    }
+
+    .table_wrap table th:last-child,
+    .table_wrap table td:last-child {
+      border-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" size="A4">
+    <div style="
+          display: flex;
+          justify-content: center;
+          padding: 20px 0px;
+          border: 1px solid #000;
+          border-bottom: 0;
+        ">
+      <img src="<%= imageUrl%>" alt="logo" style="width: 120px; height: auto" />
+    </div>
+    <div class="page_content">
+      <div class="invoice_title" style="text-align: center;">
+        <h2 style="margin: 0; padding: 6px 0px"> <%= workspaceName %></h2>
+      </div>
+      <div class="table_wrap">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 33.33%; border-top: unset">
+                <p>Company Name</p>
+                <p>
+                  <b>
+                    <%= company_name %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%; border-top: unset">
+                <p>Customer Name</p>
+                <p>
+                  <b>
+                    <%= customer_name %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%; border-top: unset">
+                <p>Email Address</p>
+                <p>
+                  <b>
+                    <%= email %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 33.33%">
+                <p>Contact No</p>
+                <p>
+                  <b>
+                    <%= phone %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%">
+                <p>Potential Volume</p>
+                <p>
+                  <b>
+                    <%= potential_volume %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%">
+                <p>Office Address</p>
+                <p>
+                  <b>
+                    <%= office_address %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 33.33%">
+                <p>Registered On RXIL</p>
+                <p>
+                  <% if (rxil==1) { %>
+                    <b>yes</b>
+                    <% } else { %>
+                      <b>no</b>
+                      <% } %>
+                </p>
+              </td>
+
+              <% const statusMap={ 1: 'New' , 2: 'Pending' , 3: 'Closed' }; %>
+
+                <td style="width: 33.33%">
+                  <p>Status</p>
+                  <p>
+                    <b>
+                      <%= statusMap[status] %>
+                    </b>
+                  </p>
+                </td>
+
+                <td style="width: 33.33%">
+                  <p>Requirement/Feedback</p>
+                  <p>
+                    <b>
+                      <%= feedback %>
+                    </b>
+                  </p>
+                </td>
+            </tr>
+            <tr>
+              <td style="width: 33.33%">
+                <p>City</p>
+                <p>
+                  <b>
+                    <%= cityName %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%">
+                <p>State</p>
+                <p>
+                  <b>
+                    <%= stateName %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%">
+                <p>Country</p>
+                <p>
+                  <b>
+                    <%= countryName %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 33.33%; border-bottom: unset">
+                <p>Offline Site Name</p>
+                <p>
+                  <b>
+                    <%= officeSiteName %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%; border-bottom: unset">
+                <p>Offline Site Stage</p>
+                <p>
+                  <b>
+                    <%= site_stage %>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 33.33%; border-bottom: unset">
+                <p>Created at</p>
+                <p>
+                  <b>
+                    <%= createdAt %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="table_wrap">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="
+                  width: 50%;
+                  padding: 10px 5px;
+                  border-left: 1px solid #000;
+                ">
+              <span>Prepared By: <b>
+                  <%= craeteUser %>
+                </b> </span>
+            </td>
+            <td style="
+                  width: 50%;
+                  padding: 10px 5px;
+                  text-align: right;
+                  border-right: 1px solid #000;
+                ">
+              <% if (signature) { %>
+                <img src="<%= signature %>" alt="Signature" style="width: 100px; height: auto; margin-top: 10px" />
+                <span style="display: block">Authorised Signatory</span>
+
+                <% } else { %>
+                  <p>No Signature Available</p>
+                  <% } %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          <tr style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: rgba(211, 211, 211, 0.486);
+                border: 1px solid #000;
+                border-top: 0;
+              ">
+            <td style="padding: 10px 5px; border: 0;">
+              <span>
+                <%= workspaceName %>
+              </span>
+            </td>
+            <td style="padding: 10px 5px; border: 0;">
+              <span>
+                <%= workspaceEmail %>
+              </span>
+            </td>
+            <td style="padding: 10px 5px; border: 0;">
+              <span>+91 <%= workspacePhone %></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 20px; text-align: center">
+      <p><b>This is a system generated document</b></p>
+    </div>
+  </div>
+</body>
+
+</html>

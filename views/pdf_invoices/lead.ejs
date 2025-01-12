@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+
+  <style>
+    body {
+      font-family: "Inter", serif;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .page {
+      width: 21cm;
+      background: white;
+      margin: 1cm auto;
+      padding: 20px 15px;
+    }
+
+    .page_content {
+      border: 1px solid #000;
+    }
+
+    .page_content .invoice_title {
+      justify-content: space-between;
+      border-bottom: 1px solid;
+      padding: 5px 5px;
+      background-color: rgba(211, 211, 211, 0.486);
+    }
+
+    .page_content .invoice_title h2 {
+      margin: 10px 0;
+      width: 100%;
+      /* max-width: 50%; */
+      font-size: 18px;
+    }
+
+    .page_content b {
+      display: inline-block;
+    }
+
+    .table_wrap {
+      padding: 0;
+    }
+
+    .table_wrap table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table_wrap table td p,
+    .table_wrap table tr p {
+      margin: 5px 0px;
+    }
+
+    .table_wrap table th,
+    .table_wrap table td {
+      padding: 5px;
+      text-align: left;
+      border: 1px solid #000;
+      font-size: 12px;
+    }
+
+    .table_wrap table th:first-child,
+    .table_wrap table td:first-child {
+      border-left: 0;
+    }
+
+    .table_wrap table.table_cstm tr th {
+      /* border-left: 0;
+      border-right: 0; */
+      background-color: rgba(211, 211, 211, 0.486);
+    }
+
+    .table_wrap table th:last-child,
+    .table_wrap table td:last-child {
+      border-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" size="A4">
+    <div style="display: flex; justify-content: center; padding: 20px 0px; border:1px solid #000; border-bottom: 0;">
+      <img src="<%= imageUrl %>" alt="logo" style="width: 120px; height: auto" />
+    </div>
+    <div class="page_content">
+      <div class="invoice_title" style="text-align: center;">
+        <h2 style="margin: 0; padding: 6px 0px">
+            <%= workspaceName %>
+        </h2>
+      </div>
+      <div class="invoice_title" style="border-bottom: 0">
+        <h3 style="margin: 0">Customer Details</h3>
+      </div>
+      <div class="table_wrap">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p>Name</p>
+                <p>
+                  <b>
+                    <%=customer_name%>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Email</p>
+                <p>
+                  <b>
+                    <%=email%>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Contact</p>
+                <p>
+                  <b>
+                    <%=phone%>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Company Name</p>
+                <p>
+                  <b>
+                    <%=company_name%>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Purchase Officer Name</p>
+                <p>
+                  <b>
+                    <%=purchase_officer_name%>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Purchase Officer No.</p>
+                <p>
+                  <b>
+                    <%=purchase_officer_phone%>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Lead Source</p>
+                <p>
+                  <% if (lead_source===0) { %>
+                    <b>Social Media</b>
+                    <% } else if (lead_source===1) { %>
+                      <b>Digital Marketing</b>
+                      <% } else if (lead_source===2) { %>
+                        <b>Email Marketing</b>
+                        <% } else { %>
+                          <b>Unknown Source</b>
+                          <% } %>
+                </p>
+
+              </td>
+              <td>
+                <p>GSTIN</p>
+                <p>
+                  <b>
+                    <%= gst_tin%>
+                  </b>
+                </p>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="invoice_title">
+        <h3 style="margin: 0">Billing Address</h3>
+      </div>
+      <div class="table_wrap" style="padding: 5px">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="border-left: 1px solid #000; width: 25%">
+                <p>Bill to Address</p>
+                <p>
+                  <b>
+                    <%= address%>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 25%">
+                <p>State</p>
+                <p>
+                  <b>
+                    <%= stateName%>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 25%">
+                <p>City</p>
+                <p>
+                  <b>
+                    <%= cityName%>
+                  </b>
+                </p>
+              </td>
+              <td style="border-right: 1px solid #000; width: 25%">
+                <p>Pin Code</p>
+                <p>
+                  <b>
+                    <%= pincode%>
+                  </b>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="invoice_title" style="
+            background-color: #fff;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            margin-bottom: 5px;
+          ">
+        <h3 style="margin: 0">Shipping Address</h3>
+      </div>
+      <div class="table_wrap" style="padding: 5px">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="border-left: 1px solid #000; width: 25%">
+                <p>Shipping Address</p>
+                <p>
+                  <b>
+                    <%=shipping_address%>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 25%">
+                <p>State</p>
+                <p>
+                  <b>
+                    <%=shippingState%>
+                  </b>
+                </p>
+              </td>
+              <td style="width: 25%">
+                <p>City</p>
+                <p>
+                  <b>
+                    <%=shippingCity%>
+                  </b>
+                </p>
+              </td>
+              <td style="border-right: 1px solid #000; width: 25%">
+                <p>Pin Code</p>
+                <p>
+                  <b>
+                    <%=shipping_pincode%>
+                  </b>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table_wrap">
+        <table class="table table_cstm">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Items Details</th>
+              <th>HSN</th>
+              <th>Make</th>
+              <th>Qty</th>
+              <th>Unit</th>
+              <th>GST</th>
+              <th>Sales Price/Unit</th>
+              <th>TAT</th>
+              <!-- <th>Sales Remark</th>
+                <th>SCM Remark</th>
+                <th>Price Range</th>
+                <th>Product Price</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <% orderItems.forEach(function(orderItem, index) { %>
+              <tr>
+                <td>
+                  <%= index + 1 %>
+                </td>
+                <td>
+                  <b>
+                    <%= orderItem.product?.name || 'No name' %>
+                  </b>
+                  <% if (orderItem.product?.combinationData?.combinationValueData &&
+                    Array.isArray(orderItem.product.combinationData.combinationValueData)) { %>
+                    <% orderItem.product.combinationData.combinationValueData.forEach(function(combination) { %>
+                      <p style="white-space: nowrap;">
+                        <b>
+                          <%= combination.productAttribute?.name || 'No attribute name' %>:
+                        </b>
+                        <%= combination.productAttributeValue?.value || 'No value' %>
+                      </p>
+                      <% }); %>
+                        <% } else { %>
+                          <p>No combination data available</p>
+                          <% } %>
+                </td>
+                <td>
+                  <%= orderItem.hsn %>
+                </td>
+                <td>
+                  <%= orderItem.make %>
+                </td>
+                <td>
+                  <%= orderItem.quantity %>
+                </td>
+                <td>
+                  <%= orderItem.unitTypeData.name %>
+                </td>
+
+                <td>
+                  <%= orderItem.gst_rate %>
+                </td>
+                <td>
+                  <%= orderItem.price %>
+                </td>
+                <td>
+                  <%= new Date(orderItem.tat).toLocaleDateString('en-GB') %>
+                </td>
+                <!-- <td><%= orderItem.sales_remarks %></td>
+                  <td><%= orderItem.scm_remarks %></td>
+                  <td><%= orderItem.sales_price_range %></td>
+                  <td>
+                    <%= (orderItem.quantity * orderItem.price * (1 + orderItem.gst_rate / 100)).toFixed(2) %>
+                  </td> -->
+              </tr>
+              <% }); %>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="invoice_title" style="border-bottom: 0">
+        <h3 style="margin: 0">Additional Details</h3>
+      </div>
+      <div class="table_wrap">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <p>Estimated Order Value</p>
+                <p>
+                  <b>
+                    <%= totalOrderValue %>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Freight Cost Till Destination</p>
+                <p>
+                  <b>
+                    <%= destination_frieght_cost %>
+                  </b>
+                </p>
+              </td>
+              <td>
+                <p>Vehicle Capacity</p>
+                <p>
+                  <b>
+                    <%= vehicle_capacity %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="border-bottom: 0">
+                <p>Lead Priority</p>
+                <p>
+                  <b>
+                    <% let priorityLabel; if (lead_priority===0) { priorityLabel='Low' ; } else if (lead_priority===1) {
+                      priorityLabel='Medium' ; } else if (lead_priority===2) { priorityLabel='High' ; } else {
+                      priorityLabel='Unknown' ; } %>
+                      <%= priorityLabel %>
+                  </b>
+                </p>
+              </td>
+
+              <td style="border-bottom: 0">
+                <p>Sales Remarks</p>
+                <p>
+                  <b>
+                    <%= sales_remarks %>
+                  </b>
+                </p>
+              </td>
+              <td style="border-bottom: 0">
+                <p>SCM Remarks</p>
+                <p>
+                  <b>
+                    <%= scm_remarks %>
+                  </b>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="table_wrap">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td style="width: 50%; padding: 10px 5px; border-left: 1px solid #000; border-right: 0px; border-top: 0;">
+              <span>Prepared By: <b>
+                  <%= craeteUser %>
+                </b> </span>
+            </td>
+            <td style="
+                  width: 50%;
+                  padding: 10px 5px;
+                  border-left: 0px solid #000;
+                  border-right: 1px solid #000;
+                  text-align: right;
+                  border-top: 0;
+                ">
+              <% if (signature) { %>
+                <img src="<%= signature %>" alt="Signature" style="width: 100px; height: auto; margin-top: 10px;" />
+                <span style="display: block;">Authorised Signatory</span>
+                <% } else { %>
+                  <p>No Signature Available</p>
+                  <% } %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          <tr style="
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background:  rgba(211, 211, 211, 0.486);
+                border:1px solid #000;
+                border-top: unset;
+                
+              ">
+            <td style="padding: 10px 5px; border: 0;">
+              <span>
+                <%= workspaceName %>
+              </span>
+            </td>
+            <td style="padding: 10px 5px; border: 0;">
+              <span>
+                <%= workspaceEmail %>
+              </span>
+            </td>
+            <td style="padding: 10px 5px; border: 0;">
+              <span>+91 <%= workspacePhone %></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 20px; text-align: center">
+      <p><b>This is a system generated document</b></p>
+    </div>
+  </div>
+</body>
+
+</html>

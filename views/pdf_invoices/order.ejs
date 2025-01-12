@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+
+  <style>
+    body {
+      font-family: "Inter", serif;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 5px 0px;
+    }
+
+    .page {
+      width: 21cm;
+      background: white;
+      margin: 1cm auto;
+      padding: 20px 15px;
+    }
+
+    .page_content {
+      border: 1px solid #000;
+    }
+
+    .page_content .invoice_title {
+      justify-content: space-between;
+      border-bottom: 1px solid;
+      padding: 5px 5px;
+      background-color: rgba(211, 211, 211, 0.486);
+    }
+
+    .page_content .invoice_title h3 {
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .page_content .invoice_title h2 {
+      width: 100%;
+      font-size: 18px;
+      color: #0033ed;
+    }
+
+    .page_content b {
+      display: inline-block;
+    }
+
+    .table_wrap {
+      padding: 0;
+    }
+
+    .table_wrap table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table_wrap table td p,
+    .table_wrap table tr p {
+      margin: 5px 0px;
+    }
+
+    .table_wrap table th,
+    .table_wrap table td {
+      padding: 5px;
+      text-align: left;
+      border: 1px solid #000;
+    }
+
+    .table_wrap table th:first-child,
+    .table_wrap table td:first-child {
+      border-left: 0;
+    }
+
+    .table_wrap table.table_cstm tr th {
+      /* border-left: 0;
+      border-right: 0; */
+      background-color: rgba(211, 211, 211, 0.486);
+    }
+
+    .table_wrap table th:last-child,
+    .table_wrap table td:last-child {
+      border-right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page" size="A4">
+    <div style="display: flex; justify-content: center; padding: 20px 0px; border:1px solid #000; border-bottom: 0;">
+      <img src="<%= imageUrl %>" alt="logo" style="width: 120px; height: auto" />
+    </div>
+
+    <div class="page_content">
+      <div class="invoice_title" style="text-align: center;">
+        <h2 style="margin: 0; padding: 6px 0px">
+          <%= company_name %>
+        </h2>
+      </div>
+      <div class="titleInvoice_content" style="display: flex; border-bottom: 1px solid #000;">
+        <div class="wrapper_left" style="width: 50%; border-right: 1px solid #000;">
+          <ul type="none" style="padding-left: 5px; width: 70%">
+            <li style="margin-bottom: 5px">
+              <p>
+                <%= company_address %>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="wrapper_right" style="width: 50%">
+          <ul type="none" style="padding-left: 5px">
+            <li style="margin-bottom: 5px">
+              <p>
+                Phone:
+                <b>
+                  <%= company_phone%>
+                </b>
+              </p>
+            </li>
+            <li>
+              <p>
+                Email:<b><a href="mailto:sales@mvikas.in" style="color: #000; text-decoration: unset">
+                    <%=company_email%>
+                  </a></b>
+              </p>
+            </li>
+            <li>
+              <p>GST :<b>
+                  <%= company_gst%>
+                </b></p>
+            </li>
+            <li>
+              <p>CIN:<b>
+                  <%= cin%>
+                </b></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="titleInvoice_content" style="display: flex; border-bottom: 1px solid #000;">
+        <div class="wrapper_left" style="width: 50%; border-right: 1px solid #000;">
+          <ul type="none" style="padding-left: 5px; width: 70%">
+            <li style="margin-bottom: 5px">
+              <b>Order For</b>
+            </li>
+            <li>
+              <p>
+                Name :
+                <b>
+                  <%=customer_name%>
+                </b>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                Phone :
+                <b>
+                  <%=customer_mobile%>
+                </b>
+              </p>
+            </li>
+            <li>
+              <p>
+                Address :
+                <b>
+                  <%= customerAddress %>
+                </b>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="wrapper_right" style="width: 50%">
+          <ul type="none" style="padding-left: 5px">
+            <li>
+              <p> Date:
+                <b>
+                  <%=orderCreatedAt%>
+                </b>
+              </p>
+            </li>
+            <li style="margin-bottom: 5px">
+              <p>
+                Order ID:
+                <b>
+                  <%= order_no%>
+                </b>
+              </p>
+            </li>
+            <li>
+              <p>Customer PO Date:<b>
+                  <%=po_date%>
+                </b></p>
+            </li>
+            <li>
+              <p style="display: flex">
+                Customer PO No.:<b style="width: 210px; word-break: break-all">
+                  <%=customer_po_no%>
+                </b>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="table_wrap" style="padding-top: 20px">
+        <table class="table table_cstm">
+          <thead>
+            <tr>
+              <th style="font-size: 10px">S.No</th>
+              <th style="font-size: 10px">Item Name</th>
+              <th style="font-size: 10px">HSN</th>
+              <th style="font-size: 10px">Make</th>
+              <th style="font-size: 10px">Qty.</th>
+              <th style="font-size: 10px">Unit</th>
+              <th style="font-size: 10px">TAT</th>
+              <th style="font-size: 10px">Sales Rate</th>
+              <th style="font-size: 10px">GST%</th>
+              <th style="font-size: 10px">Taxable Amount</th>
+              <th style="font-size: 10px">GST Amount</th>
+              <th style="font-size: 10px">Total Amount</th>
+              <th style="font-size: 10px">Remarks</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <% if (orderItems && Array.isArray(orderItems) && orderItems.length> 0) { %>
+              <% orderItems.forEach(function(orderItem, index) { %>
+                <tr>
+                  <td style="font-size: 10px">
+                    <%= index + 1 %>
+                  </td>
+                 <td style="font-size: 10px">
+  <b>
+    <%= orderItem.product?.name || 'No name' %>
+  </b>
+  
+  <% if (Array.isArray(orderItem.item_attributes) && orderItem.item_attributes.length > 0) { %>
+    <% orderItem.item_attributes.forEach(function(attribute) { %>
+      <p style="white-space: nowrap;">
+        <%= attribute.attribute_name || 'No attribute name' %> :
+        <% if (Array.isArray(attribute.values) && attribute.values.length > 0) { %>
+          <% attribute.values.forEach(function(value, index) { %>
+            <span>
+              <%= value.value || 'No value' %><%= index < attribute.values.length - 1 ? ',' : '' %>
+            </span>
+          <% }); %>
+        <% } else { %>
+          <span>No values available</span>
+        <% } %>
+      </p>
+    <% }); %>
+  <% } else { %>
+    <p>No item attributes available</p>
+  <% } %>
+</td>
+
+                  <td style="font-size: 10px">
+                    <%= orderItem.hsn || 'N/A' %>
+                  </td>
+                  <td style="font-size: 10px">
+                    <%= orderItem.make || 'N/A' %>
+                  </td>
+                  <td style="font-size: 10px">
+                    <%= orderItem.quantity || 'N/A' %>
+                  </td>
+                  <td style="font-size: 10px">
+                    <%= orderItem.unitTypeData?.name || 'N/A' %>
+                  </td>
+                  <td style="font-size: 10px">
+                    <%= orderItem.tat ? new Date(orderItem.tat).toLocaleDateString('en-GB') : 'N/A' %>
+                  </td>
+                  <td style="font-size: 10px">₹ <%= orderItem.price || 0 %>
+                  </td>
+                  <td style="font-size: 10px">
+                    <%= orderItem.gst_rate || 0 %>%
+                  </td>
+
+                  <td style="font-size: 10px">
+                    ₹ <%= ((orderItem.price || 0) * (orderItem.quantity || 1)).toFixed(2) %>
+                  </td>
+
+                  <td style="font-size: 10px">
+                    ₹ <%= (((orderItem.price || 0) * (orderItem.quantity || 1)) * (orderItem.gst_rate || 0) /
+                      100).toFixed(2) %>
+                  </td>
+
+                  <td style="font-size: 10px">
+                    ₹ <%= (((orderItem.price || 0) * (orderItem.quantity || 1)) + (((orderItem.price || 0) *
+                      (orderItem.quantity || 1)) * (orderItem.gst_rate || 0) / 100)).toFixed(2) %>
+                  </td>
+
+                  <td style="font-size: 10px">
+                    <%= orderItem.remark || 'N/A' %>
+                  </td>
+
+
+                </tr>
+                <% }); %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="13" style="text-align: center;">No items available</td>
+                    </tr>
+                    <% } %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table_wrap">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 50%">
+                <p>Estimate Amount In Words:</p>
+                <p><b>Two Lakh Eighty-three Thousand Two Hundred Only/-</b></p>
+              </td>
+              <td style="width: 50%">
+                <ul type="none" style="padding-left: 0px">
+                  <% let subtotal=0; let gstTotal=0; if (orderItems && Array.isArray(orderItems)) {
+                    orderItems.forEach(function(orderItem) { let price=((orderItem.price || 0) * (orderItem.quantity ||
+                    1)); let gstRate=orderItem.gst_rate || 0; let gstAmount=price * gstRate / 100; subtotal +=price;
+                    gstTotal +=gstAmount; }); } let grandTotal=subtotal + gstTotal; %>
+
+                    <li style="display: flex; align-items: center; justify-content: space-between;">
+                      <p>Sub Total:</p>
+                      <p><b>₹ <%= subtotal.toFixed(2) %></b></p>
+                    </li>
+                    <li
+                      style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #000;">
+                      <p>GST Amount:</p>
+                      <p><b>₹ <%= gstTotal.toFixed(2) %></b></p>
+                    </li>
+                    <li style="display: flex; align-items: center; justify-content: space-between;">
+                      <p>Grand Total:</p>
+                      <p><b>₹ <%= grandTotal.toFixed(2) %></b></p>
+                    </li>
+                </ul>
+
+              </td>
+            </tr>
+            <!-- Remaining HTML content like Terms and Conditions, Bank Details, etc. -->
+          </tbody>
+        </table>
+        <td colspan="12">
+          <p style="padding-left: 5px;"><b>Bank Details</b></p>
+          <ul type="none" style="padding-left: 5px">
+            <li>
+              <p>Bank Name : <span>
+                  <%= bankName%>
+                </span></p>
+            </li>
+            <li>
+              <p>Bank IFSC : <span>
+                  <%= bankIfsc%>
+                </span></p>
+            </li>
+            <li>
+              <p>Bank Ac Number : <span>
+                  <%= bank_ac_number%>
+                </span></p>
+            </li>
+          </ul>
+        </td>
+        <div class="table_wrap" style="border-top: 1px solid;">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td style="width: 33%; padding: 10px 5px; border: 0; vertical-align: bottom;">
+                  <span>Prepared By: <b>
+                      <%= craeteUser %>
+                    </b> </span>
+                </td>
+                <td style="
+                      width: 33%;
+                      padding: 10px 5px;
+                      border: 0;
+                      text-align: right;
+                    ">
+                  <% if (signature) { %>
+                    <img src="<%= signature %>" alt="Signature" style="width: 100px; height: auto; margin-top: 10px;" />
+                    <span style="display: block;">Sales Authorised Signatory</span>
+
+                    <% } else { %>
+                      <p>No Signature Available</p>
+                      <% } %>
+                </td>
+                <td style="
+                    width: 50%;
+                    padding: 10px 5px;
+                    border: 0;
+                    text-align: right;
+                  ">
+                  <% if (finaceSignature) { %>
+                    <img src="<%= finaceSignature %>" alt="Signature" style="width: 100px; height: auto; margin-top: 10px;" />
+                    <span style="display: block;">Finance Authorised Signatory</span>
+
+                    <% } else { %>
+                      <p>No Signature Available</p>
+                      <% } %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <tbody>
+              <tr style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: rgba(211, 211, 211, 0.486);
+                    border-top: 1px solid #000;
+                  ">
+                <td style="padding: 10px 5px; border: 0;">
+                  <span>
+                    <%= workspaceName %>
+                  </span>
+                </td>
+                <td style="padding: 10px 5px; border: 0;">
+                  <span>
+                    <%= workspaceEmail %>
+                  </span>
+                </td>
+                <td style="padding: 10px 5px; border: 0;">
+                  <span>+91 <%= workspacePhone %></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 20px; text-align: center">
+      <p><b>This is a system generated document</b></p>
+    </div>
+  </div>
+</body>
+
+</html>
